@@ -1,0 +1,29 @@
+{
+    "events": [
+        {
+            "eventId": "12345",
+            "eventName": "Taylor Swift",
+            "eventImage": "assets/events/taylor_swift.png",
+            "eventDescription": "Designed as a tribute to Swift's discography across her 17-year career, the Eras Tour covers all styles of music from her 10 studio albums, ranging from country and pop to folk and alternative rock genres. Some media outlets dubbed the Eras Tour the 'greatest hits' tour of an artist still in her commercial prime." ,
+            "eventLogDate": "26.03.2001",
+            "eventDuration": 3.0
+        },
+        {
+            "eventId": "12346",
+            "eventName": "Daftpunk",
+            "eventImage": "assets/events/daftpunk.png",
+            "eventDescription": "Daftpunk description",
+            "eventLogDate": "26.03.2002",
+            "eventDuration": 2.5
+        },
+        {
+            "eventId": "12347",
+            "eventName": "Twice",
+            "eventImage": "assets/events/twice.png",
+            "eventDescription": "Twice description",
+            "eventLogDate": "26.03.2003",
+            "eventDuration": 2.0
+        }
+    ]
+}
+
