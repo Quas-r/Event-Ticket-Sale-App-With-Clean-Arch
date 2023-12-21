@@ -33,7 +33,7 @@ class CustomBottomBar {
         items: [
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.explore,
+              Icons.home,
               color: logicHolder.pageIndex == 0
                   ? Colors.black
                   : Colors.white,
