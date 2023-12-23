@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/features/home/data/model/event_dates_model.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/consts/consts.dart';
@@ -20,6 +21,22 @@ class HomeDataSourceImpl implements HomeDataSource {
       if (response?.statusCode == 200) {
         List<dynamic> data = response?.data['events'];
         List<EventModel> eventList = data.map((e) => EventModel.fromJson(e)).toList();
+        return Right(eventList);
+      } else {
+        return const Left('Failed to fetch events');
+      }
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<EventDatesModel>>> getEventDates(String id) async {
+    try {
+      var response = await DioRequest().request(RequestType.get, Urls.getEventDates);
+      if (response?.statusCode == 200) {
+        List<dynamic> data = response?.data['dates'];
+        List<EventDatesModel> eventList = data.map((e) => EventDatesModel.fromJson(e)).toList();
         return Right(eventList);
       } else {
         return const Left('Failed to fetch events');

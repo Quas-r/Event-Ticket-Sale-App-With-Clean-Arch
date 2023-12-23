@@ -41,11 +41,28 @@ mixin _$HomeScreenLogicHolder on _HomeScreenLogicHolderBase, Store {
     });
   }
 
+  late final _$isEventDatesLoadingAtom = Atom(
+      name: '_HomeScreenLogicHolderBase.isEventDatesLoading', context: context);
+
+  @override
+  bool get isEventDatesLoading {
+    _$isEventDatesLoadingAtom.reportRead();
+    return super.isEventDatesLoading;
+  }
+
+  @override
+  set isEventDatesLoading(bool value) {
+    _$isEventDatesLoadingAtom.reportWrite(value, super.isEventDatesLoading, () {
+      super.isEventDatesLoading = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
 isEventsLoading: ${isEventsLoading},
-isEventsLoading2: ${isEventsLoading2}
+isEventsLoading2: ${isEventsLoading2},
+isEventDatesLoading: ${isEventDatesLoading}
     ''';
   }
 }

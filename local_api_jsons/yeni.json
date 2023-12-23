@@ -1,0 +1,18 @@
+{
+  "dates": [
+    {
+      "eventId": "12345",
+      "eventImage": "assets/events/taylor_swift.png",
+      "eventId2": "1",
+      "eventDate": "26.03.2024"
+
+    },
+    {
+      "eventId": "12345",
+      "eventImage": "assets/events/taylor_swift.png",
+      "eventId2": "2",
+      "eventDate": "27.03.2024"
+
+    }
+  ]
+}
