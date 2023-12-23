@@ -31,15 +31,20 @@ class HomeDataSourceImpl implements HomeDataSource {
   }
 
   @override
-  Future<Either<String, List<EventDatesModel>>> getEventDates(String id) async {
+  Future<Either<String, EventDatesModel>> getEventDates(String id) async {
     try {
-      var response = await DioRequest().request(RequestType.get, Urls.getEventDates);
+      var response = await DioRequest().request(RequestType.get, Urls.getEventDates.replaceFirst("{id}", id));
       if (response?.statusCode == 200) {
-        List<dynamic> data = response?.data['dates'];
-        List<EventDatesModel> eventList = data.map((e) => EventDatesModel.fromJson(e)).toList();
-        return Right(eventList);
+        Map<String, dynamic> data;
+        if (response?.data['dates'] == null) {
+          data = {};
+        } else {
+          data = response?.data['dates'];
+        }
+        print(data);
+        return Right(EventDatesModel.fromJson(data));
       } else {
-        return const Left('Failed to fetch events');
+        return Left(response?.data['message']);
       }
     } catch (e) {
       return Left(e.toString());

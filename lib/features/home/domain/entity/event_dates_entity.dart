@@ -1,34 +1,47 @@
-
 class EventDatesEntity {
-  String? id;
   String? eventImage;
-  String? id2;
-  String? eventDate;
+  List<EventDetailEntity>? eventDetails;
 
-
-  EventDatesEntity({
-    this.id,
-    this.eventImage,
-    this.id2,
-    this.eventDate
-  });
+  EventDatesEntity({this.eventImage, this.eventDetails});
 
   EventDatesEntity.fromJson(Map<String, dynamic> json) {
-    id = json['eventId'];
-    eventImage = json['eventImage'];
-    id2 = json['eventId2'];
-    eventDate = json['eventDate'];
-
+    final key = json.keys.first;
+    eventImage = json[key][0]['eventImage'];
+    if (json[key] != null) {
+      eventDetails = <EventDetailEntity>[];
+      json[key].forEach((item) {
+        item['eventDetails'].forEach((v) {
+          eventDetails?.add(EventDetailEntity.fromJson(v));
+        });
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['eventId'] = id;
     data['eventImage'] = eventImage;
-    data['eventId2'] = id2;
-    data['eventDate'] = eventDate;
+    if (eventDetails != null) {
+      data['eventDetails'] = eventDetails?.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }
 
+class EventDetailEntity {
+  String? eventParticularId;
+  String? eventDate;
 
+  EventDetailEntity({this.eventParticularId, this.eventDate});
+
+  EventDetailEntity.fromJson(Map<String, dynamic> json) {
+    eventParticularId = json['eventParticularId'];
+    eventDate = json['eventDate'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['eventParticularId'] = eventParticularId;
+    data['eventDate'] = eventDate;
+    return data;
+  }
+}

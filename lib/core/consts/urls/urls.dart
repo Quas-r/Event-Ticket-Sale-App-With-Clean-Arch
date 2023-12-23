@@ -7,5 +7,5 @@ class Urls {
 
   //Event Transactions
   static const String getEvents = "local_api_jsons/events.json"; // get
-  static const String getEventDates = "local_api_jsons/yeni.json"; //get
+  static const String getEventDates = "local_api_jsons/yeni.json/id={id}"; //get
 }

@@ -7,7 +7,6 @@ import 'package:event_ticket_sale_app_with_clean_arch/features/home/domain/useca
 import 'package:mobx/mobx.dart';
 part 'home_screen_logic_holder.g.dart';
 
-
 @injectable
 class HomeScreenLogicHolder = _HomeScreenLogicHolderBase
     with _$HomeScreenLogicHolder;
@@ -16,23 +15,19 @@ abstract class _HomeScreenLogicHolderBase with Store {
   GetEventsUsecase getEventsUsecase;
   GetEventDatesUsecase getEventDatesUsecase;
 
-  _HomeScreenLogicHolderBase(
-    this.getEventsUsecase,
-      this.getEventDatesUsecase
-  );
-
+  _HomeScreenLogicHolderBase(this.getEventsUsecase, this.getEventDatesUsecase);
 
   @observable
   bool isEventsLoading = false;
 
-   @observable
+  @observable
   bool isEventsLoading2 = false;
 
-   @observable
-   bool isEventDatesLoading = false;
+  @observable
+  bool isEventDatesLoading = false;
 
   List<EventEntity> events = [];
-  List<EventDatesEntity> event_dates = [];
+  EventDatesEntity? eventDates;
 
   Future<List<EventEntity>> getEvents() async {
     if (events.isEmpty) {
@@ -49,20 +44,11 @@ abstract class _HomeScreenLogicHolderBase with Store {
     return events;
   }
 
-  Future<List<EventDatesEntity>> getEventDates(String id) async {
-    if (event_dates.isEmpty) {
-      isEventDatesLoading = true;
-      var result = await getEventDatesUsecase.call(id);
-      isEventDatesLoading = false;
-      event_dates = result.getOrElse(() => []);
-      // for (var element in events) {
-      //   if (element.id != null) {
-      //     // maybe do something here
-      //   }
-      // }
-    }
-    return event_dates;
+  Future<EventDatesEntity?> getEventDates(String id) async {
+    isEventDatesLoading = true;
+    var result = await getEventDatesUsecase.call(id);
+    isEventDatesLoading = false;
+    eventDates = result.getOrElse(() => EventDatesEntity());
+    return eventDates;
   }
 }
-
-

@@ -8,13 +8,13 @@ import 'package:event_ticket_sale_app_with_clean_arch/features/home/domain/repos
 
 @injectable
 class GetEventDatesUsecase
-    implements AsyncUsecase<String, List<EventDatesEntity>, String> {
+    implements AsyncUsecase<String, EventDatesEntity, String> {
   final HomeRepository repository;
 
   GetEventDatesUsecase(this.repository);
 
   @override
-  Future<Either<String, List<EventDatesEntity>>> call(String id) {
+  Future<Either<String, EventDatesEntity>> call(String id) {
     return repository.getEventDates(id);
   }
 }

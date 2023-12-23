@@ -4,5 +4,5 @@ import 'package:event_ticket_sale_app_with_clean_arch/features/home/domain/entit
 
 abstract class HomeRepository {
   Future<Either<String, List<EventEntity>>> getEvents();
-  Future<Either<String, List<EventDatesEntity>>> getEventDates(String id);
+  Future<Either<String, EventDatesEntity>> getEventDates(String id);
 }

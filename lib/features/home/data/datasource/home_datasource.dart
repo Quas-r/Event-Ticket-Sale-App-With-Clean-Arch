@@ -4,5 +4,5 @@ import 'package:event_ticket_sale_app_with_clean_arch/features/home/data/model/e
 
 abstract class HomeDataSource {
   Future<Either<String, List<EventModel>>> getEvents();
-  Future<Either<String, List<EventDatesModel>>> getEventDates(String id);
+  Future<Either<String, EventDatesModel>> getEventDates(String id);
 }

@@ -10,7 +10,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 class TicketListScreen extends StatefulWidget {
   const TicketListScreen(
     this.logicHolder,
-    this.eventId,{
+    this.eventId, {
     super.key,
   });
 
@@ -22,16 +22,14 @@ class TicketListScreen extends StatefulWidget {
 }
 
 class _TicketListScreenState extends State<TicketListScreen> {
-
-
   @override
   void initState() {
     super.initState();
     //widget.logicHolder.getEvents();
-    widget.logicHolder.getEventDates(widget.eventId).then((value) => print(value[0].id));
+    widget.logicHolder.getEventDates(widget.eventId).then(
+        (value) => print("deneme: ${value?.eventImage}"));
     //widget.logicHolder.getEventDetails(widget.eventId);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +39,17 @@ class _TicketListScreenState extends State<TicketListScreen> {
         title: const Text("Date List"),
       ),
       backgroundColor: AppColors.themeColor.withOpacity(0.5),
-      body: Observer(
-        builder: (_) {
-          // return widget.logicHolder.isTicketListLoading
-          //   ? SizedBox(
-          //       height: MediaQuery.of(context).size.height / 4,
-          //       width: MediaQuery.of(context).size.width,
-          //       child: const Center(
-          //         child: LoadingIndicator(),
-          //       ),
-          //     )
-          //   : 
-          return widget.logicHolder.isEventDatesLoading
+      body: Observer(builder: (_) {
+        // return widget.logicHolder.isTicketListLoading
+        //   ? SizedBox(
+        //       height: MediaQuery.of(context).size.height / 4,
+        //       width: MediaQuery.of(context).size.width,
+        //       child: const Center(
+        //         child: LoadingIndicator(),
+        //       ),
+        //     )
+        //   :
+        return widget.logicHolder.isEventDatesLoading
             ? SizedBox(
                 height: MediaQuery.of(context).size.height / 4,
                 width: MediaQuery.of(context).size.width,
@@ -60,98 +57,98 @@ class _TicketListScreenState extends State<TicketListScreen> {
                   child: LoadingIndicator(),
                 ),
               )
-            : 
+            :
             // bu bir liste döndürücü. bunu kullanmak zorunda değilsiniz tabi.
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(
-                  widget.logicHolder.event_dates[0].eventImage ?? "assets/events/daftpunk.png",
-                  width: size.width,
-                  height: size.height / 4,
-                  fit: BoxFit.cover,
-                ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                textAlign: TextAlign.start,
-                "Dates",
-                style:  TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                ),),
-              ),
-              Icon(
-                Icons.arrow_downward,
-                color: Colors.black,
-              ),
-            ],
-          ),
-                Expanded(
-                  child: ListView.builder(
-                  
-                        // normalde burda bir eventin bütün tarihlerdeki listesini görecek şekilde ayarlamak lazım
-                        // onun için de getTicketList vs adında bir usecase ve onun data
-                        // ve presentationdaki bağlantılarını yaptıktan sonra burda
-                        // widget.logicHolder.ticketList.length şeklinde ayarlarsınız
-                        // ben şimdilik göstermelik olarak event listesindeki ilk itemi dönüyorum
-                        itemCount: widget.logicHolder.event_dates.length,
-                        itemBuilder: (context, index) {
-                          final eventDate = widget.logicHolder.event_dates[index];
-                          return GestureDetector(
-                            onTap: () {},
-                            child: Card(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    widget.logicHolder.eventDates?.eventImage ??
+                        "assets/events/daftpunk.png",
+                    width: size.width,
+                    height: size.height / 4,
+                    fit: BoxFit.cover,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          textAlign: TextAlign.start,
+                          "Dates",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_downward,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      // normalde burda bir eventin bütün tarihlerdeki listesini görecek şekilde ayarlamak lazım
+                      // onun için de getTicketList vs adında bir usecase ve onun data
+                      // ve presentationdaki bağlantılarını yaptıktan sonra burda
+                      // widget.logicHolder.ticketList.length şeklinde ayarlarsınız
+                      // ben şimdilik göstermelik olarak event listesindeki ilk itemi dönüyorum
+                      itemCount:
+                          widget.logicHolder.eventDates?.eventDetails?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        final eventDate =
+                            widget.logicHolder.eventDates?.eventDetails?[index];
+                        return GestureDetector(
+                          onTap: () {},
+                          child: Card(
+                            color: AppColors.themeColor,
+                            elevation: 4,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                            child: Container(
+                              height: 40,
+                              width: 200,
                               color: AppColors.themeColor,
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(2),
-                              ),
-                              child: Container(
-                                height: 40,
-                                width: 200,
-                                color: AppColors.themeColor,
-                                child: Row(
-
-                                  children: [
-                                    Icon(
-                                        Icons.calendar_month,
-                                        color: Colors.black,
-                                      ),
-
-                                    Text(
-                                      textAlign: TextAlign.center,
-                                      eventDate.eventDate ?? "No date",
-                                      style:  TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400,
-                                      ),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.calendar_month,
+                                    color: Colors.black,
+                                  ),
+                                  Text(
+                                    textAlign: TextAlign.center,
+                                    eventDate?.eventDate ?? "No date",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
                                     ),
-                                    Text(
-                                      textAlign: TextAlign.center,
-                                      "No datejjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
-                                      style:  TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400,
-                                      ),
+                                  ),
+                                  Text(
+                                    textAlign: TextAlign.center,
+                                    "No datejjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
-                          );
-                        },
-                      ),
-                ),
-              ],
-            );
-        }
-      ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              );
+      }),
     );
   }
 }

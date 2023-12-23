@@ -1,18 +1,49 @@
 {
-  "dates": [
-    {
-      "eventId": "12345",
-      "eventImage": "assets/events/taylor_swift.png",
-      "eventId2": "1",
-      "eventDate": "26.03.2024"
-
-    },
-    {
-      "eventId": "12345",
-      "eventImage": "assets/events/taylor_swift.png",
-      "eventId2": "2",
-      "eventDate": "27.03.2024"
-
-    }
-  ]
+  "dates": {
+    "12345": [
+      {
+        "eventImage": "assets/events/taylor_swift.png",
+        "eventDetails": [
+          {
+            "eventParticularId": "1",
+            "eventDate": "26.03.2024"
+          },
+          {
+            "eventParticularId": "2",
+            "eventDate": "27.03.2024"
+          }
+        ]
+      }
+    ],
+    "12346": [
+      {
+        "eventImage": "assets/events/daftpunk.png",
+        "eventDetails": [
+          {
+            "eventParticularId": "3",
+            "eventDate": "29.03.2024"
+          },
+          {
+            "eventParticularId": "4",
+            "eventDate": "31.03.2024"
+          }
+        ]
+      }
+    ],
+    "12347": [
+      {
+        "eventImage": "assets/events/twice.png",
+        "eventDetails": [
+          {
+            "eventParticularId": "3",
+            "eventDate": "29.03.2024"
+          },
+          {
+            "eventParticularId": "4",
+            "eventDate": "31.03.2024"
+          }
+        ]
+      }
+    ]
+  }
 }
