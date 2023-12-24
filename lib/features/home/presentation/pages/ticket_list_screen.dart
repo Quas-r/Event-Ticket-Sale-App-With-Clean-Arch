@@ -4,8 +4,11 @@ import 'package:event_ticket_sale_app_with_clean_arch/core/locator/service_locat
 import 'package:event_ticket_sale_app_with_clean_arch/core/widgets/custom_appbar.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/widgets/loading_indicator.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/logic_holder/home_logic_holder/home_screen_logic_holder.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/pages/block_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
+import '../../../../core/utils/navigator.dart';
 
 class TicketListScreen extends StatefulWidget {
   const TicketListScreen(
@@ -103,7 +106,13 @@ class _TicketListScreenState extends State<TicketListScreen> {
                         final eventDate =
                             widget.logicHolder.eventDates?.eventDetails?[index];
                         return GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            CustomNavigator().push(
+                              context,
+                              BlockScreen(
+                              ),
+                            );
+                          },
                           child: Card(
                             color: AppColors.themeColor,
                             elevation: 4,
