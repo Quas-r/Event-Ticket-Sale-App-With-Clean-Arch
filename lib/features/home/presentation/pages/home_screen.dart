@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:event_ticket_sale_app_with_clean_arch/core/app/event_ticket_sale_app.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/consts/colors/colors.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/locator/service_locator.dart';
@@ -54,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       logicHolder, // bunu kendin de oluşturabilirsin ticket list screen sayfasında. bu şekilde parametre ile de alabilirsin.
                       logicHolder.events[index].id ??
                           "00000000-0000-0000-0000-000000000000",
+                          logicHolder.events[index].eventName ?? ""
                     ),
                   );
                       },

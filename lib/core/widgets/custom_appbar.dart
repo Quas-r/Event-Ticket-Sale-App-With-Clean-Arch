@@ -1,4 +1,5 @@
 import 'package:event_ticket_sale_app_with_clean_arch/core/consts/colors/colors.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/core/utils/custom_font.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar {
@@ -25,11 +26,8 @@ class CustomAppBar {
           Text(
             textAlign: TextAlign.center,
             title,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: customFont(
+              color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
           ),
         ],
       ),
@@ -37,16 +35,13 @@ class CustomAppBar {
         const SizedBox(width: 16),
         Row(
           children: [
-            const SizedBox(
+            SizedBox(
               width: 80, 
               child: Text(
                 'İzmir',
                 textAlign: TextAlign.end,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: customFont(
+              color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500),
               ),
             ),
             IconButton(

@@ -34,6 +34,9 @@ class EventDetailModel extends EventDetailEntity{
   EventDetailModel.fromJson(Map<String, dynamic> json) {
     eventParticularId = json['eventParticularId'];
     eventDate = json['eventDate'];
+    eventTime = json['evenTime'];
+    eventLocation = json['eventLocation'];
+    eventPrice = json['eventPrice'];
   }
 
   @override
@@ -41,6 +44,9 @@ class EventDetailModel extends EventDetailEntity{
     final Map<String, dynamic> data = <String, dynamic>{};
     data['eventParticularId'] = eventParticularId;
     data['eventDate'] = eventDate;
+    data['evenTime'] = eventTime;
+    data['eventLocation'] = eventLocation;
+    data['eventPrice'] = eventPrice;
     return data;
   }
 }

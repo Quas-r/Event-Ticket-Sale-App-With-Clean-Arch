@@ -30,18 +30,27 @@ class EventDatesEntity {
 class EventDetailEntity {
   String? eventParticularId;
   String? eventDate;
+  String? eventTime;
+  String? eventLocation;
+  String? eventPrice;
 
-  EventDetailEntity({this.eventParticularId, this.eventDate});
+  EventDetailEntity({this.eventParticularId, this.eventDate, this.eventTime, this.eventLocation, this.eventPrice});
 
   EventDetailEntity.fromJson(Map<String, dynamic> json) {
     eventParticularId = json['eventParticularId'];
     eventDate = json['eventDate'];
+    eventTime = json['eventTime'];
+    eventLocation = json['eventLocation'];
+    eventPrice = json['eventPrice'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['eventParticularId'] = eventParticularId;
     data['eventDate'] = eventDate;
+    data['eventTime'] = eventTime;
+    data['eventLocation'] = eventLocation;
+    data['eventPrice'] = eventPrice;
     return data;
   }
 }

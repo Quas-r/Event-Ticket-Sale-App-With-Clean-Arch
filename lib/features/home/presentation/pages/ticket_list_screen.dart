@@ -1,8 +1,10 @@
 import 'package:event_ticket_sale_app_with_clean_arch/core/app/event_ticket_sale_app.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/consts/colors/colors.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/locator/service_locator.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/core/utils/custom_font.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/widgets/custom_appbar.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/widgets/loading_indicator.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/features/home/domain/entity/event_dates_entity.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/logic_holder/home_logic_holder/home_screen_logic_holder.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/pages/block_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +15,14 @@ import '../../../../core/utils/navigator.dart';
 class TicketListScreen extends StatefulWidget {
   const TicketListScreen(
     this.logicHolder,
-    this.eventId, {
+    this.eventId,
+    this.eventName, {
     super.key,
   });
 
   final HomeScreenLogicHolder logicHolder;
   final String eventId;
+  final String eventName;
 
   @override
   _TicketListScreenState createState() => _TicketListScreenState();
@@ -28,30 +32,29 @@ class _TicketListScreenState extends State<TicketListScreen> {
   @override
   void initState() {
     super.initState();
-    //widget.logicHolder.getEvents();
-    widget.logicHolder.getEventDates(widget.eventId).then(
-        (value) => print("deneme: ${value?.eventImage}"));
-    //widget.logicHolder.getEventDetails(widget.eventId);
+    widget.logicHolder.getEventDates(widget.eventId);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.scaffoldColor,
       appBar: AppBar(
         backgroundColor: AppColors.themeColor,
-        title: const Text("Date List"),
+        leading: IconButton(
+          color: Colors.black,
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          widget.eventName,
+          style: customFont(
+              color: Colors.black, fontSize: 18, fontWeight: FontWeight.w400),
+        ),
       ),
-      backgroundColor: AppColors.themeColor.withOpacity(0.5),
       body: Observer(builder: (_) {
-        // return widget.logicHolder.isTicketListLoading
-        //   ? SizedBox(
-        //       height: MediaQuery.of(context).size.height / 4,
-        //       width: MediaQuery.of(context).size.width,
-        //       child: const Center(
-        //         child: LoadingIndicator(),
-        //       ),
-        //     )
-        //   :
         return widget.logicHolder.isEventDatesLoading
             ? SizedBox(
                 height: MediaQuery.of(context).size.height / 4,
@@ -60,94 +63,102 @@ class _TicketListScreenState extends State<TicketListScreen> {
                   child: LoadingIndicator(),
                 ),
               )
-            :
-            // bu bir liste döndürücü. bunu kullanmak zorunda değilsiniz tabi.
-            Column(
+            : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset(
                     widget.logicHolder.eventDates?.eventImage ??
                         "assets/events/daftpunk.png",
-                    width: size.width,
-                    height: size.height / 4,
+                    height: size.height / 3,
                     fit: BoxFit.cover,
                   ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          textAlign: TextAlign.start,
-                          "Dates",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+                  Container(
+                    height: size.height / 20,
+                    color: AppColors.headerColor,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.0),
+                          child: Text(
+                            textAlign: TextAlign.start,
+                            "Dates",
+                            style: customFont(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
-                      ),
-                      Icon(
-                        Icons.arrow_downward,
-                        color: Colors.black,
-                      ),
-                    ],
+                        const Padding(
+                          padding: EdgeInsets.only(right: 20.0),
+                          child: Icon(
+                            Icons.arrow_drop_down,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: ListView.builder(
-                      // normalde burda bir eventin bütün tarihlerdeki listesini görecek şekilde ayarlamak lazım
-                      // onun için de getTicketList vs adında bir usecase ve onun data
-                      // ve presentationdaki bağlantılarını yaptıktan sonra burda
-                      // widget.logicHolder.ticketList.length şeklinde ayarlarsınız
-                      // ben şimdilik göstermelik olarak event listesindeki ilk itemi dönüyorum
                       itemCount:
-                          widget.logicHolder.eventDates?.eventDetails?.length ?? 0,
+                          widget.logicHolder.eventDates?.eventDetails?.length ??
+                              0,
                       itemBuilder: (context, index) {
-                        final eventDate =
+                        final eventDetail =
                             widget.logicHolder.eventDates?.eventDetails?[index];
-                        return GestureDetector(
-                          onTap: () {
-                            CustomNavigator().push(
-                              context,
-                              BlockScreen(
-                              ),
-                            );
-                          },
-                          child: Card(
-                            color: AppColors.themeColor,
-                            elevation: 4,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                            child: Container(
-                              height: 40,
-                              width: 200,
+                        return Container(
+                          color: AppColors.headerColor,
+                          child: GestureDetector(
+                            onTap: () {
+                              CustomNavigator().push(
+                                context,
+                                BlockScreen(
+                                    widget.eventId,
+                                    widget.eventName,
+                                    eventDetail ?? EventDetailEntity()),
+                              );
+                            },
+                            child: Card(
+                              margin: const EdgeInsets.all(0.3),
                               color: AppColors.themeColor,
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.calendar_month,
-                                    color: Colors.black,
-                                  ),
-                                  Text(
-                                    textAlign: TextAlign.center,
-                                    eventDate?.eventDate ?? "No date",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                              child: SizedBox(
+                                height: size.height / 15,
+                                child: Row(
+                                  children: [
+                                    const SizedBox(width: 10),
+                                    const Icon(
+                                      Icons.calendar_month,
+                                      color: Colors.black,
                                     ),
-                                  ),
-                                  Text(
-                                    textAlign: TextAlign.center,
-                                    "No datejjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      textAlign: TextAlign.center,
+                                      eventDetail?.eventDate ?? "No date",
+                                      style: customFont(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600),
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(width: 20),
+                                    Expanded(
+                                      child: Text(
+                                        textAlign: TextAlign.start,
+                                        eventDetail?.eventLocation ??
+                                            "No location",
+                                        style: customFont(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
