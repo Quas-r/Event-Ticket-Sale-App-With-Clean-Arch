@@ -6,6 +6,7 @@ class EventModel extends EventEntity {
     id = json['eventId'];
     eventName = json['eventName'];
     eventImage = json['eventImage'];
+    eventImage2 = json['eventImage2'];
     eventDescription = json['eventDescription'];
     eventLogDate = json['eventLogDate'];
     eventDuration = json['eventDuration'];
@@ -17,6 +18,7 @@ class EventModel extends EventEntity {
     data['eventId'] = id;
     data['eventName'] = eventName;
     data['eventImage'] = eventImage;
+    data['eventImage2'] = eventImage2;
     data['eventDescription'] = eventDescription;
     data['eventLogDate'] = eventLogDate;
     data['eventDuration'] = eventDuration;

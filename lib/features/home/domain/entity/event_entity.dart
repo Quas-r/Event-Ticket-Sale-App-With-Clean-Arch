@@ -3,6 +3,7 @@ class EventEntity {
   String? id;
   String? eventName;
   String? eventImage;
+  String? eventImage2;
   String? eventDescription;
   String? eventLogDate;
   double? eventDuration;
@@ -11,6 +12,7 @@ class EventEntity {
     this.id,
     this.eventName,
     this.eventImage,
+    this.eventImage2,
     this.eventDescription,
     this.eventLogDate,
     this.eventDuration,
@@ -20,6 +22,7 @@ class EventEntity {
     id = json['eventId'];
     eventName = json['eventName'];
     eventImage = json['eventImage'];
+    eventImage2 = json['eventImage2'];
     eventDescription = json['eventDescription'];
     eventLogDate = json['eventLogDate'];
     eventDuration = json['eventDuration'];
@@ -30,6 +33,7 @@ class EventEntity {
     data['eventId'] = id;
     data['eventName'] = eventName;
     data['eventImage'] = eventImage;
+    data['eventImage2'] = eventImage2;
     data['eventDescription'] = eventDescription;
     data['eventLogDate'] = eventLogDate;
     data['eventDuration'] = eventDuration;

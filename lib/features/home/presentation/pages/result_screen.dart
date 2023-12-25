@@ -35,7 +35,7 @@ class ResultScreen extends StatelessWidget {
         backgroundColor: AppColors.themeColor,
         leading: IconButton(
           color: Colors.black,
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.home),
           onPressed: () {
             CustomNavigator().push(context, const MainScreen());
           },
