@@ -9,49 +9,49 @@
             "eventDate": "26.03.2024",
             "eventLocation": "Melbourne Cricket Ground (MCG) Melbourne",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "1000"
           },
           {
             "eventParticularId": "2",
             "eventDate": "27.03.2024",
             "eventLocation": "Edinburgh Scottish Gas Murrayfield Stadium",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "1000"
           },
           {
             "eventParticularId": "3",
             "eventDate": "27.03.2024",
             "eventLocation": "Liverpool Anfield Stadium",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "1000"
           },
           {
             "eventParticularId": "4",
             "eventDate": "30.03.2024",
             "eventLocation": "Liverpool Anfield Stadium",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "1000"
           },
           {
             "eventParticularId": "5",
             "eventDate": "02.04.2024",
             "eventLocation": "Liverpool Anfield Stadium",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "1000"
           },
           {
             "eventParticularId": "5",
             "eventDate": "03.04.2024",
             "eventLocation": "London Wembley Stadium",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "1000"
           },
           {
             "eventParticularId": "6",
             "eventDate": "04.04.2024",
             "eventLocation": "London Wembley Stadium",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "1000"
           }
         ]
       }
@@ -63,37 +63,37 @@
           {
             "eventParticularId": "7",
             "eventDate": "26.03.2024",
-            "eventLocation": "Melbourne Cricket Ground (MCG) Melbourne",
+            "eventLocation": "NYC Arena",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "100"
           },
           {
             "eventParticularId": "8",
             "eventDate": "27.03.2024",
-            "eventLocation": "Edinburgh Scottish Gas Murrayfield Stadium",
+            "eventLocation": "California Stadium",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "100"
           },
           {
             "eventParticularId": "9",
             "eventDate": "27.03.2024",
-            "eventLocation": "Liverpool Anfield Stadium",
+            "eventLocation": "London Bridge",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "100"
           },
           {
             "eventParticularId": "10",
             "eventDate": "30.03.2024",
-            "eventLocation": "Liverpool Anfield Stadium",
+            "eventLocation": "Leeds Arena",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "100"
           },
           {
             "eventParticularId": "11",
             "eventDate": "02.04.2024",
-            "eventLocation": "Liverpool Anfield Stadium",
+            "eventLocation": " Pakistan AVM",
             "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventPrice": "100"
           }
         ]
       }
@@ -105,79 +105,79 @@
           {
             "eventParticularId": "12",
             "eventDate": "26.03.2024",
-            "eventLocation": "Melbourne Cricket Ground (MCG) Melbourne",
-            "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventLocation": "Tokyo Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
           },
           {
             "eventParticularId": "13",
             "eventDate": "27.03.2024",
-            "eventLocation": "Edinburgh Scottish Gas Murrayfield Stadium",
-            "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventLocation": "Tokyo Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
           },
           {
             "eventParticularId": "14",
             "eventDate": "27.03.2024",
-            "eventLocation": "Liverpool Anfield Stadium",
-            "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventLocation": "Seoul Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
           },
           {
             "eventParticularId": "15",
             "eventDate": "30.03.2024",
-            "eventLocation": "Liverpool Anfield Stadium",
-            "eventTime": "12.00 PM",
-            "eventPrice": 500
+            "eventLocation": "Seoul Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
           },
           {
             "eventParticularId": "16",
             "eventDate": "02.04.2024",
-            "eventLocation": "Liverpool Anfield Stadium",
-            "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventLocation": "Ä°stanbul KadÄ±kÃ¶y Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
           }
         ]
       }
     ],
     "12348": [
       {
-        "eventImage": "assets/events/twice.png",
+        "eventImage": "assets/events/lorde.png",
         "eventDetails": [
           {
-            "eventParticularId": "12",
+            "eventParticularId": "17",
             "eventDate": "26.03.2024",
             "eventLocation": "Melbourne Cricket Ground (MCG) Melbourne",
-            "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
           },
           {
-            "eventParticularId": "13",
+            "eventParticularId": "18",
             "eventDate": "27.03.2024",
-            "eventLocation": "Edinburgh Scottish Gas Murrayfield Stadium",
-            "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventLocation": "Ä°stanbul Ãlker Arena ",
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
           },
           {
-            "eventParticularId": "14",
+            "eventParticularId": "19",
             "eventDate": "27.03.2024",
-            "eventLocation": "Liverpool Anfield Stadium",
-            "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventLocation": "Ä°stanbul Ãlker Arena",
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
           },
           {
-            "eventParticularId": "15",
+            "eventParticularId": "20",
             "eventDate": "30.03.2024",
-            "eventLocation": "Liverpool Anfield Stadium",
-            "eventTime": "12.00 PM",
-            "eventPrice": 500
+            "eventLocation": "Roy Thomson Hall",
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
           },
           {
-            "eventParticularId": "16",
+            "eventParticularId": "21",
             "eventDate": "02.04.2024",
-            "eventLocation": "Liverpool Anfield Stadium",
-            "eventTime": "12.00 PM",
-            "eventPrice": "500"
+            "eventLocation": "Roy Thomson Hall",
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
           }
         ]
       }

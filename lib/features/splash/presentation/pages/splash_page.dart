@@ -1,4 +1,5 @@
 import 'package:event_ticket_sale_app_with_clean_arch/core/app/event_ticket_sale_app.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/core/utils/custom_font.dart';
 import 'package:flutter/material.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/pages/main_screen.dart';
 
@@ -12,7 +13,6 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   @override
-
   void initState() {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
@@ -31,15 +31,7 @@ class _SplashPageState extends State<SplashPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/logo.png", 
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              "Event Ticket Sale App", 
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              "assets/logo.png",
             ),
           ],
         ),
@@ -47,4 +39,3 @@ class _SplashPageState extends State<SplashPage> {
     );
   }
 }
-

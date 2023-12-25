@@ -38,7 +38,7 @@ class _TicketListScreenState extends State<TicketListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffoldColor,
+      backgroundColor: AppColors.themeColor,
       appBar: AppBar(
         backgroundColor: AppColors.themeColor,
         leading: IconButton(
@@ -57,20 +57,19 @@ class _TicketListScreenState extends State<TicketListScreen> {
       body: Observer(builder: (_) {
         return widget.logicHolder.isEventDatesLoading
             ? SizedBox(
-                height: MediaQuery.of(context).size.height / 4,
-                width: MediaQuery.of(context).size.width,
+                height: size.height / 4,
+                width: size.width,
                 child: const Center(
                   child: LoadingIndicator(),
                 ),
               )
             : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Image.asset(
                     widget.logicHolder.eventDates?.eventImage ??
                         "assets/events/daftpunk.png",
-                    height: size.height / 3,
-                    fit: BoxFit.cover,
+                    width: size.width,
+                    fit: BoxFit.fitWidth,
                   ),
                   Container(
                     height: size.height / 20,
@@ -79,7 +78,7 @@ class _TicketListScreenState extends State<TicketListScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 10.0),
+                          padding: const EdgeInsets.only(left: 10.0),
                           child: Text(
                             textAlign: TextAlign.start,
                             "Dates",
@@ -113,9 +112,7 @@ class _TicketListScreenState extends State<TicketListScreen> {
                             onTap: () {
                               CustomNavigator().push(
                                 context,
-                                BlockScreen(
-                                    widget.eventId,
-                                    widget.eventName,
+                                BlockScreen(widget.eventId, widget.eventName,
                                     eventDetail ?? EventDetailEntity()),
                               );
                             },

@@ -13,8 +13,8 @@
             "eventId": "12346",
             "eventName": "Daftpunk",
             "eventImage": "assets/events/daftpunk.png",
-            "eventImage2": "assets/events/taylor_swift2.png",
-            "eventDescription": "Daftpunk description",
+            "eventImage2": "assets/events/daftpunk2.png",
+            "eventDescription": "   Daft tour was the first concert tour by the French electronic music duo Daft Punk. The tour spanned from February to December 1997",
             "eventLogDate": "26.03.2002",
             "eventDuration": 2.5
         },
@@ -22,20 +22,19 @@
             "eventId": "12347",
             "eventName": "Twice",
             "eventImage": "assets/events/twice.png",
-            "eventImage2": "assets/events/taylor_swift2.png",
-            "eventDescription": "Twice description",
+            "eventImage2": "assets/events/twice2.png",
+            "eventDescription": "   Twice 5th World Tour 'Ready to Be' is the third worldwide concert tour and the fifth overall concert headlined by South Korean girl group Twice, in support of their twelfth extended play Ready to Be. The tour began on April 15, 2023, at the Olympic Gymnastics Arena in Seoul.",
             "eventLogDate": "26.03.2003",
             "eventDuration": 2.0
         },
         {
-            "eventId": "123458",
-            "eventName": "Taylor Swiftwwwwww",
-            "eventImage": "assets/events/daftpunk.png",
-            "eventImage2": "assets/events/taylor_swift2.png",
-            "eventDescription": "   Designed as a tribute to Swift's discography across her 17-year career, the Eras Tour covers all styles of music from her 10 studio albums, ranging from country and pop to folk and alternative rock genres. Some media outlets dubbed the Eras Tour the 'greatest hits' tour of an artist still in her commercial prime." ,
+            "eventId": "12348",
+            "eventName": "Lorde",
+            "eventImage": "assets/events/lorde.png",
+            "eventImage2": "assets/events/lorde2.png",
+            "eventDescription": "  The Solar Power Tour was the third concert tour by New Zealand singer-songwriter Lorde, in support of her third studio album Solar Power . The tour took place from April 2022 to March 2023, spanning over 70 shows in North America, Europe, Latin America and Oceania." ,
             "eventLogDate": "26.03.2001",
             "eventDuration": 3.0
         }
     ]
-}
-
+  }

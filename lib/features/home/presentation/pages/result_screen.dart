@@ -84,7 +84,7 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(height: 10),
             TicketInfoHorizontalWidget("Ticket Count", "$ticketCount"),
             const SizedBox(height: 10),
-            TicketInfoHorizontalWidget("Total Price", "$totalPrice"),
+            TicketInfoHorizontalWidget("Total Price", "\$$totalPrice"),
           ],
         ),
       ),

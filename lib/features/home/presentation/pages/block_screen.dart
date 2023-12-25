@@ -45,7 +45,7 @@ class _BlockScreenState extends State<BlockScreen> {
         title: Text(
           widget.eventName,
           style: customFont(
-              color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
+              color: Colors.black, fontSize: 18, fontWeight: FontWeight.w400),
         ),
       ),
       backgroundColor: AppColors.themeColor,
@@ -115,10 +115,11 @@ class _BlockScreenState extends State<BlockScreen> {
             bottom: 0,
             child: GestureDetector(
               onTap: () {
-                if(selectedBlockDropdownValue != null && selectedTicketCountDropdownValue != null){
+                if (selectedBlockDropdownValue != null &&
+                    selectedTicketCountDropdownValue != null) {
                   CustomNavigator().push(
-                  context,
-                  PaymentScreen(
+                    context,
+                    PaymentScreen(
                       eventName: widget.eventName,
                       ticketCount:
                           int.parse(selectedTicketCountDropdownValue ?? "0"),
@@ -127,13 +128,17 @@ class _BlockScreenState extends State<BlockScreen> {
                                   .toDouble() *
                               (int.parse(
                                   widget.eventDetailEntity.eventPrice ?? "0")),
-                                  selectedBlock: selectedBlockDropdownValue ?? "Block 1",
-                      eventDetailEntity: widget.eventDetailEntity,),
-                );
+                      selectedBlock: selectedBlockDropdownValue ?? "Block 1",
+                      eventDetailEntity: widget.eventDetailEntity,
+                    ),
+                  );
                 }
               },
               child: Container(
-                color: AppColors.headerColor,
+                color: (selectedBlockDropdownValue == null ||
+                        selectedTicketCountDropdownValue == null)
+                    ? AppColors.headerColor.withOpacity(0.01)
+                    : AppColors.headerColor.withOpacity(0.7),
                 height: 80,
                 child: Center(
                   child: Padding(

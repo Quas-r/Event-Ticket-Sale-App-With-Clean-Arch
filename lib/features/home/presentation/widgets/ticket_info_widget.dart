@@ -19,7 +19,7 @@ class TicketInfoWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.headerColor,
+          color: AppColors.themeColor.withOpacity(0.7),
           border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(8),
         ),

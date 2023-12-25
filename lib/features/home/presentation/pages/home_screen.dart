@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:event_ticket_sale_app_with_clean_arch/core/app/event_ticket_sale_app.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/consts/colors/colors.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/locator/service_locator.dart';
@@ -36,8 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void scrollTo(double destination) {
     _scrollController.animateTo(
       destination, 
-      duration: const Duration(milliseconds: 500), // Animasyon süresi
-      curve: Curves.ease, // Animasyon eğrisi
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.ease, 
     );
   }
 
@@ -129,10 +127,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         },
                         body: Container(
+                          color: AppColors.themeColor.withOpacity(0.8),
+                          width: size.width,
                           height: size.height * 0.25,
-                          color: AppColors.headerColor.withOpacity(0.8),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          child: Stack(
+                            
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -145,8 +144,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       fontWeight: FontWeight.w400),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              Positioned(
+                                bottom: 0,
                                 child: CustomButton(
                                     Text(
                                       "Buy Your Ticket",
@@ -160,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   CustomNavigator().push(
                                     context,
                                     TicketListScreen(
-                                        logicHolder, // bunu kendin de oluşturabilirsin ticket list screen sayfasında. bu şekilde parametre ile de alabilirsin.
+                                        logicHolder, 
                                         logicHolder.events[index].id ??
                                             "00000000-0000-0000-0000-000000000000",
                                         logicHolder.events[index].eventName ??

@@ -1,10 +1,14 @@
 import 'package:event_ticket_sale_app_with_clean_arch/core/consts/colors/colors.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/utils/custom_font.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/core/utils/custom_snackbar.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/utils/navigator.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/widgets/custom_button.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/features/home/domain/entity/event_dates_entity.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/pages/result_screen.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/widgets/card_number_formatter.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/widgets/expiry_date_formatter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class PaymentScreen extends StatefulWidget {
   final String eventName;
@@ -29,6 +33,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
   TextEditingController cardNumberController = TextEditingController();
   TextEditingController expiryDateController = TextEditingController();
   TextEditingController cvvController = TextEditingController();
+  Color buttonColor = AppColors.headerColor.withOpacity(0.01);
 
   @override
   void dispose() {
@@ -39,13 +44,33 @@ class _PaymentScreenState extends State<PaymentScreen> {
   }
 
   @override
+  void initState() {
+    cardNumberController.addListener(updateButtonState);
+    expiryDateController.addListener(updateButtonState);
+    cvvController.addListener(updateButtonState);
+    super.initState();
+  }
+
+  void updateButtonState() {
+    setState(() {
+      if (cardNumberController.text.isNotEmpty &&
+          expiryDateController.text.isNotEmpty &&
+          cvvController.text.isNotEmpty) {
+        buttonColor = AppColors.headerColor;
+      } else {
+        buttonColor = AppColors.headerColor.withOpacity(0.01);
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Ekrana herhangi bir yere tıklandığında klavyenin kapanması için FocusScope'u kullanın
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: AppColors.themeColor,
           leading: IconButton(
@@ -61,138 +86,228 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 color: Colors.black, fontSize: 18, fontWeight: FontWeight.w400),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
+        body: Container(
+          color: AppColors.themeColor.withOpacity(0.6),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'Payment Details',
-                style: customFont(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'Payment Details',
+                  style: customFont(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500),
+                ),
               ),
-              const SizedBox(height: 20),
-              _buildPaymentItem('Event Name', widget.eventName),
-              _buildPaymentItem('Ticket Count', widget.ticketCount.toString()),
-              _buildPaymentItem(
-                  'Total Amount', '\$${widget.totalPrice.toStringAsFixed(2)}'),
-              const SizedBox(height: 40),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Column(
+                  children: [
+                    _buildPaymentItem('Event Name', widget.eventName),
+                    _buildPaymentItem(
+                        'Ticket Count', widget.ticketCount.toString()),
+                    _buildPaymentItem('Total Amount',
+                        '\$${widget.totalPrice.toStringAsFixed(2)}'),
+                  ],
+                ),
+              ),
               Expanded(
-                child: Card(
-                  color: AppColors.header2Color,
-                  elevation: 4,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            'Enter Card Details',
-                            style: customFont(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        Card(
-                          color: AppColors.themeColor,
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: TextField(
-                              controller: cardNumberController,
-                              decoration: const InputDecoration(
-                                  labelText: 'Card Number',
-                                  border: InputBorder.none),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Card(
+                    color: AppColors.themeColor.withOpacity(0.8),
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Enter Card Details',
+                              style: customFont(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w400),
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 12),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Card(
-                                color: AppColors.themeColor,
-                                elevation: 4,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: TextField(
-                                    controller: expiryDateController,
-                                    decoration: const InputDecoration(
-                                        labelText: 'Expiry Date (MM/YY)',
-                                        border: InputBorder.none),
+                          const SizedBox(height: 20),
+                          Card(
+                            color: AppColors.header2Color.withOpacity(0.9),
+                            elevation: 4,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: TextField(
+                                style: customFont(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
+                                controller: cardNumberController,
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly,
+                                  LengthLimitingTextInputFormatter(16),
+                                  CardNumberInputFormatter(),
+                                ],
+                                keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                    labelStyle: customFont(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400),
+                                    labelText: 'Card Number',
+                                    border: InputBorder.none),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Card(
+                                  color:
+                                      AppColors.header2Color.withOpacity(0.9),
+                                  elevation: 4,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: TextField(
+                                      style: customFont(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400),
+                                      controller: expiryDateController,
+                                      keyboardType: TextInputType.number,
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.digitsOnly,
+                                        LengthLimitingTextInputFormatter(4),
+                                        ExpiryDateInputFormatter(),
+                                      ],
+                                      decoration: InputDecoration(
+                                          labelStyle: customFont(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
+                                          labelText: 'Expiry Date (MM/YY)',
+                                          border: InputBorder.none),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Card(
-                                color: AppColors.themeColor,
-                                elevation: 4,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: TextField(
-                                    controller: cvvController,
-                                    decoration: const InputDecoration(
-                                        labelText: 'CVV',
-                                        border: InputBorder.none),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Card(
+                                  color:
+                                      AppColors.header2Color.withOpacity(0.9),
+                                  elevation: 4,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: TextField(
+                                      style: customFont(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400),
+                                      controller: cvvController,
+                                      keyboardType: TextInputType.number,
+                                      inputFormatters: [
+                                        LengthLimitingTextInputFormatter(3),
+                                      ],
+                                      decoration: InputDecoration(
+                                          labelStyle: customFont(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
+                                          labelText: 'CVV',
+                                          border: InputBorder.none),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        )
-                      ],
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
               const SizedBox(height: 40),
-              CustomButton(
-                  color: AppColors.headerColor,
-                  Text(
-                    "Pay Now",
-                    style: customFont(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500),
-                  ), () {
-                    
-                if(widget.totalPrice > 0){
-                  CustomNavigator().push(
-                    context,
-                    ResultScreen(
-                      eventName: widget.eventName,
-                      ticketCount: widget.ticketCount,
-                      totalPrice: widget.totalPrice,
-                      selectedBlock: widget.selectedBlock,
-                      eventDetailEntity: widget.eventDetailEntity,
-                    ));
-                }
-              })
+              GestureDetector(
+                onTap: () {
+                  if ((cardNumberController.text.isNotEmpty &&
+                      expiryDateController.text.isNotEmpty &&
+                      cvvController.text.isNotEmpty)) {
+                    if (isPaymentInfoCorrect()) {
+                      CustomNavigator().push(
+                          context,
+                          ResultScreen(
+                            eventName: widget.eventName,
+                            ticketCount: widget.ticketCount,
+                            totalPrice: widget.totalPrice,
+                            selectedBlock: widget.selectedBlock,
+                            eventDetailEntity: widget.eventDetailEntity,
+                          ));
+                    } else {
+                      cardNumberController.text = "";
+                      expiryDateController.text = "";
+                      cvvController.text = "";
+                    }
+                  }
+                },
+                child: Container(
+                  color: buttonColor,
+                  height: 80,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Buy Your Ticket",
+                        style: customFont(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  bool isPaymentInfoCorrect() {
+    String exampleCardNumber = "1111 1111 1111 1111";
+    String exampleExpiryDate = "11/11";
+    String exampleCVV = "111";
+    print(cardNumberController.text);
+    print(expiryDateController.text);
+    print(cvvController.text);
+    if (cardNumberController.text != exampleCardNumber ||
+        expiryDateController.text != exampleExpiryDate ||
+        cvvController.text != exampleCVV) {
+      errorSnackBar(context, "Payment information is wrong");
+      return false;
+    } else {
+      successSnackBar(context, "Payment is succesfull!");
+      return true;
+    }
   }
 
   Widget _buildPaymentItem(String label, String value) {
