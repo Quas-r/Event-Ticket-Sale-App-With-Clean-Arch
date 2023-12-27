@@ -11,7 +11,7 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  
+
   configureDependencies();
   prefs = await SharedPreferences.getInstance();
   runApp(const EventTicketSaleApp());

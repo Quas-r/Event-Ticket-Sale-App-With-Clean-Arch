@@ -1,0 +1,190 @@
+{
+  "eventDetails": {
+    "12345": [
+      {
+        "eventName": "Taylor Swift",
+        "eventImage": "assets/events/taylor_swift.png",
+        "eventSubDetails": [
+          {
+            "eventParticularId": "1",
+            "eventDate": "26.03.2024",
+            "eventLocation": "Melbourne Cricket Ground (MCG) Melbourne",
+            "eventTime": "12.00 PM",
+            "eventPrice": "1000"
+          },
+          {
+            "eventParticularId": "2",
+            "eventDate": "27.03.2024",
+            "eventLocation": "Edinburgh Scottish Gas Murrayfield Stadium",
+            "eventTime": "12.00 PM",
+            "eventPrice": "1000"
+          },
+          {
+            "eventParticularId": "3",
+            "eventDate": "27.03.2024",
+            "eventLocation": "Liverpool Anfield Stadium",
+            "eventTime": "12.00 PM",
+            "eventPrice": "1000"
+          },
+          {
+            "eventParticularId": "4",
+            "eventDate": "30.03.2024",
+            "eventLocation": "Liverpool Anfield Stadium",
+            "eventTime": "12.00 PM",
+            "eventPrice": "1000"
+          },
+          {
+            "eventParticularId": "5",
+            "eventDate": "02.04.2024",
+            "eventLocation": "Liverpool Anfield Stadium",
+            "eventTime": "12.00 PM",
+            "eventPrice": "1000"
+          },
+          {
+            "eventParticularId": "5",
+            "eventDate": "03.04.2024",
+            "eventLocation": "London Wembley Stadium",
+            "eventTime": "12.00 PM",
+            "eventPrice": "1000"
+          },
+          {
+            "eventParticularId": "6",
+            "eventDate": "04.04.2024",
+            "eventLocation": "London Wembley Stadium",
+            "eventTime": "12.00 PM",
+            "eventPrice": "1000"
+          }
+        ]
+      }
+    ],
+    "12346": [
+      {
+        "eventName": "Daftpunk",
+        "eventImage": "assets/events/daftpunk.png",
+        "eventDetails": [
+          {
+            "eventParticularId": "7",
+            "eventDate": "26.03.2024",
+            "eventLocation": "NYC Arena",
+            "eventTime": "12.00 PM",
+            "eventPrice": "100"
+          },
+          {
+            "eventParticularId": "8",
+            "eventDate": "27.03.2024",
+            "eventLocation": "California Stadium",
+            "eventTime": "12.00 PM",
+            "eventPrice": "100"
+          },
+          {
+            "eventParticularId": "9",
+            "eventDate": "27.03.2024",
+            "eventLocation": "London Bridge",
+            "eventTime": "12.00 PM",
+            "eventPrice": "100"
+          },
+          {
+            "eventParticularId": "10",
+            "eventDate": "30.03.2024",
+            "eventLocation": "Leeds Arena",
+            "eventTime": "12.00 PM",
+            "eventPrice": "100"
+          },
+          {
+            "eventParticularId": "11",
+            "eventDate": "02.04.2024",
+            "eventLocation": " Pakistan AVM",
+            "eventTime": "12.00 PM",
+            "eventPrice": "100"
+          }
+        ]
+      }
+    ],
+    "12347": [
+      {
+        "eventName": "Twice",
+        "eventImage": "assets/events/twice.png",
+        "eventDetails": [
+          {
+            "eventParticularId": "12",
+            "eventDate": "26.03.2024",
+            "eventLocation": "Tokyo Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
+          },
+          {
+            "eventParticularId": "13",
+            "eventDate": "27.03.2024",
+            "eventLocation": "Tokyo Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
+          },
+          {
+            "eventParticularId": "14",
+            "eventDate": "27.03.2024",
+            "eventLocation": "Seoul Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
+          },
+          {
+            "eventParticularId": "15",
+            "eventDate": "30.03.2024",
+            "eventLocation": "Seoul Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
+          },
+          {
+            "eventParticularId": "16",
+            "eventDate": "02.04.2024",
+            "eventLocation": "Ä°stanbul KadÄ±kÃ¶y Arena",
+            "eventTime": "09.00 PM",
+            "eventPrice": "900"
+          }
+        ]
+      }
+    ],
+    "12348": [
+      {
+        "eventName": "Lorde",
+        "eventImage": "assets/events/lorde.png",
+        "eventDetails": [
+          {
+            "eventParticularId": "17",
+            "eventDate": "26.03.2024",
+            "eventLocation": "Melbourne Cricket Ground (MCG) Melbourne",
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
+          },
+          {
+            "eventParticularId": "18",
+            "eventDate": "27.03.2024",
+            "eventLocation": "Ä°stanbul Ãlker Arena ",
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
+          },
+          {
+            "eventParticularId": "19",
+            "eventDate": "27.03.2024",
+            "eventLocation": "Ä°stanbul Ãlker Arena",
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
+          },
+          {
+            "eventParticularId": "20",
+            "eventDate": "30.03.2024",
+            "eventLocation": "Roy Thomson Hall",
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
+          },
+          {
+            "eventParticularId": "21",
+            "eventDate": "02.04.2024",
+            "eventLocation": "Roy Thomson Hall",
+            "eventTime": "10.00 PM",
+            "eventPrice": "450"
+          }
+        ]
+      }
+    ]
+  }
+}

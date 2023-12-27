@@ -1,11 +1,5 @@
 class Urls {
-  //Auth
-  static const String login = "credentials/...";
-  static const String registerAndLogin = "credentials/..."; // post
-  //Users
-  static const String attachUser = "credentials/....";
-
   //Event Transactions
   static const String getEvents = "local_api_jsons/events.json"; // get
-  static const String getEventDates = "local_api_jsons/eventDetails.json/id={id}"; //get
+  static const String getEventDetails = "local_api_jsons/event_details.json/id={id}"; //get
 }

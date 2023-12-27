@@ -157,9 +157,6 @@ class _AppExpansionPanelListState extends State<AppExpansionPanelList> {
     if (widget._allowOnlyOnePanelOpen) {
       final ExpansionPanelRadio pressedChild =
           widget.children[index] as ExpansionPanelRadio;
-
-      // If another ExpansionPanelRadio was already open, apply its
-      // expansionCallback (if any) to false, because it's closing.
       for (int childIndex = 0;
           childIndex < widget.children.length;
           childIndex += 1) {
@@ -197,9 +194,6 @@ class _AppExpansionPanelListState extends State<AppExpansionPanelList> {
     final List<MergeableMaterialItem> items = <MergeableMaterialItem>[];
 
     for (int index = 0; index < widget.children.length; index += 1) {
-      //todo: Uncomment to add gap between selected panels
-      /*if (_isChildExpanded(index) && index != 0 && !_isChildExpanded(index - 1))
-        items.add(MaterialGap(key: _SaltedKey<BuildContext, int>(context, index * 2 - 1)));*/
 
       final AppExpansionPanel child = widget.children[index];
       final Widget headerWidget = child.headerBuilder(

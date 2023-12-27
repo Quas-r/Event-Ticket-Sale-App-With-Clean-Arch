@@ -1,4 +1,3 @@
-import 'package:event_ticket_sale_app_with_clean_arch/core/consts/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/widgets/custom_appbar.dart'; // Eğer CustomAppBar dosyanızın adı bu değilse düzeltin
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -16,12 +15,10 @@ class MainScreen extends StatelessWidget {
     return Observer(builder: (_) {
       return Scaffold(
         appBar: CustomAppBar(
-          title: mainLogicHolder.appBarTitles[mainLogicHolder.pageIndex], // İstediğiniz başlık buraya
-          showBackButton: false, // Geri butonunu göstermek istemiyorsanız false yapın
-          onBackButtonPressed: () {
-            // Geri butonuna tıklama işlemleri
-          },
-          acts: [], // Ekstra actions eklemek isterseniz buraya ekleme yapabilirsiniz
+          title: mainLogicHolder.appBarTitles[mainLogicHolder.pageIndex],
+          showBackButton: false,
+          onBackButtonPressed: () {},
+          acts: [],
         ).getStandardWidget(),
         bottomNavigationBar: CustomBottomBar(
           mainLogicHolder,

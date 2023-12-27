@@ -103,7 +103,7 @@ flutter:
     - assets/
     - assets/events/
     - local_api_jsons/events.json
-    - local_api_jsons/eventDetails.json
+    - local_api_jsons/event_details.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

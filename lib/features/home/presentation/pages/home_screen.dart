@@ -5,8 +5,8 @@ import 'package:event_ticket_sale_app_with_clean_arch/core/utils/custom_font.dar
 import 'package:event_ticket_sale_app_with_clean_arch/core/utils/navigator.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/widgets/custom_button.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/core/widgets/loading_indicator.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/features/events/presentation/pages/ticket_list_screen.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/logic_holder/home_logic_holder/home_screen_logic_holder.dart';
-import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/pages/ticket_list_screen.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/widgets/app_expansion_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -131,7 +131,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: size.width,
                           height: size.height * 0.25,
                           child: Stack(
-                            
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -159,7 +158,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   CustomNavigator().push(
                                     context,
                                     TicketListScreen(
-                                        logicHolder, 
                                         logicHolder.events[index].id ??
                                             "00000000-0000-0000-0000-000000000000",
                                         logicHolder.events[index].eventName ??

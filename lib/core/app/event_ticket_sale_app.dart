@@ -1,7 +1,7 @@
 import 'package:event_ticket_sale_app_with_clean_arch/core/configs/build_config_manager.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/features/splash/presentation/pages/splash_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:event_ticket_sale_app_with_clean_arch/features/splash/presentation/pages/splash_page.dart';
 import '../consts/colors/colors.dart';
 
 late Size size;

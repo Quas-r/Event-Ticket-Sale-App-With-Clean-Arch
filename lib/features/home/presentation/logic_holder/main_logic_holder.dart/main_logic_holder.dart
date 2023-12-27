@@ -1,4 +1,5 @@
-import 'package:event_ticket_sale_app_with_clean_arch/features/my_tickets/presentation/pages/my_tickets_screen.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/features/events/presentation/pages/my_tickets_screen.dart';
+import 'package:event_ticket_sale_app_with_clean_arch/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:event_ticket_sale_app_with_clean_arch/features/home/presentation/pages/home_screen.dart';
@@ -14,8 +15,8 @@ abstract class _MainLogicHolderBase with Store {
 
   List<Widget> bodyPages = [
     HomeScreen(),
-    const MyTicketsPage(),
-    HomeScreen(),
+    MyTicketsScreen(),
+    const ProfileScreen()
   ];
   List<String> appBarTitles = ["Home", "My Tickets", "Profile"];
 }
