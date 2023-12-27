@@ -61,7 +61,7 @@
       {
         "eventName": "Daftpunk",
         "eventImage": "assets/events/daftpunk.png",
-        "eventDetails": [
+        "eventSubDetails": [
           {
             "eventParticularId": "7",
             "eventDate": "26.03.2024",
@@ -104,7 +104,7 @@
       {
         "eventName": "Twice",
         "eventImage": "assets/events/twice.png",
-        "eventDetails": [
+        "eventSubDetails": [
           {
             "eventParticularId": "12",
             "eventDate": "26.03.2024",
@@ -147,7 +147,7 @@
       {
         "eventName": "Lorde",
         "eventImage": "assets/events/lorde.png",
-        "eventDetails": [
+        "eventSubDetails": [
           {
             "eventParticularId": "17",
             "eventDate": "26.03.2024",
