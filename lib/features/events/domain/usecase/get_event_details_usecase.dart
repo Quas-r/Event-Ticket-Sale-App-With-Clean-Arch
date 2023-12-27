@@ -12,7 +12,7 @@ class GetEventDetailsUsecase
   GetEventDetailsUsecase(this.repository);
 
   @override
-  Future<Either<String, EventDetailsEntity>> call(String id) {
+  Future<Either<String, EventDetailsEntity>>? call(String id) {
     return repository.getEventDetails(id);
   }
 }

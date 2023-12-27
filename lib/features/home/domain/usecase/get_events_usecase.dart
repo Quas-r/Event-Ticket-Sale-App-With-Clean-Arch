@@ -13,7 +13,7 @@ class GetEventsUsecase
   GetEventsUsecase(this.repository);
 
   @override
-  Future<Either<String, List<EventEntity>>> call(NoParams p) {
+  Future<Either<String, List<EventEntity>>>? call(NoParams p) {
     return repository.getEvents();
   }
 }

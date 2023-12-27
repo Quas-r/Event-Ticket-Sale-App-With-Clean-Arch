@@ -12,7 +12,7 @@ class MyTicketsScreen extends StatelessWidget {
   final List<Map<String, dynamic>> eventList = [
     {
       'eventImage': 'assets/events/lorde2.png',
-      'eventName': 'Lorde ',
+      'eventName': 'Lorde',
       'eventPrice': 450,
       "eventLocation": "Roy Thomson Hall",
       "eventTime": "10.00 PM",
@@ -60,7 +60,7 @@ class MyTicketsScreen extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                color: AppColors.header2Color,
+                color: const Color.fromRGBO(203, 194, 185, 1),
                 child: Container(
                   decoration: BoxDecoration(
                     border: Border.all(
@@ -74,13 +74,21 @@ class MyTicketsScreen extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                eventList[index]['eventImage'],
+                              )),
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
                         width: size.width / 2.5,
                         height: size.height / 5,
-                        child: Image.asset(
-                          eventList[index]['eventImage'],
-                          fit: BoxFit.fill,
-                        ),
                       ),
                       const SizedBox(width: 60),
                       Column(
