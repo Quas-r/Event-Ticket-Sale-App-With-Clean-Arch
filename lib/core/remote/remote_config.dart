@@ -88,11 +88,11 @@ class RemoteConfig {
 
     // Belirli bir anahtarla eşleşen veri bölümünü alma
     Map<String, dynamic>? matchedData;
-    if (jsonMap.containsKey('dates')) {
-      Map<String, dynamic> dateMap = jsonMap['dates'];
+    if (jsonMap.containsKey('eventDetails')) {
+      Map<String, dynamic> dateMap = jsonMap['eventDetails'];
       if (dateMap.containsKey(key)) {
         matchedData = {
-          'dates': {key: dateMap[key]},
+          'eventDetails': {key: dateMap[key]},
         };
       }
     }
