@@ -21,7 +21,7 @@ abstract class _EventsLogicHolderBase with Store {
     isEventDetailsLoading = true;
     var result = await getEventDetailsUsecase.call(id);
     isEventDetailsLoading = false;
-    eventDetails = result.getOrElse(() => EventDetailsEntity());
+    eventDetails = result?.getOrElse(() => EventDetailsEntity());
     return eventDetails;
   }
 }

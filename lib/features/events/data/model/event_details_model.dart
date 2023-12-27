@@ -1,7 +1,6 @@
 import 'package:event_ticket_sale_app_with_clean_arch/features/events/domain/entity/event_details_entity.dart';
 
-class EventDetailsModel extends EventDetailsEntity{
-
+class EventDetailsModel extends EventDetailsEntity {
   @override
   EventDetailsModel.fromJson(Map<String, dynamic> json) {
     final key = json.keys.first;
@@ -23,14 +22,14 @@ class EventDetailsModel extends EventDetailsEntity{
     data['eventImage'] = eventImage;
     data['eventName'] = eventName;
     if (eventSubDetailsEntity != null) {
-      data['eventSubDetails'] = eventSubDetailsEntity?.map((v) => v.toJson()).toList();
+      data['eventSubDetails'] =
+          eventSubDetailsEntity?.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class EventDetailsSubModel extends EventDetailsSubEntity{
-
+class EventDetailsSubModel extends EventDetailsSubEntity {
   @override
   EventDetailsSubModel.fromJson(Map<String, dynamic> json) {
     eventParticularId = json['eventParticularId'];

@@ -11,7 +11,8 @@ class EventsDataSourceImpl implements EventsDataSource {
   @override
   Future<Either<String, EventDetailsModel>> getEventDetails(String id) async {
     try {
-      var response = await DioRequest().request(RequestType.get, Urls.getEventDetails.replaceFirst("{id}", id));
+      var response = await DioRequest().request(
+          RequestType.get, Urls.getEventDetails.replaceFirst("{id}", id));
       if (response?.statusCode == 200) {
         Map<String, dynamic> data;
         if (response?.data['eventDetails'] == null) {
@@ -24,8 +25,8 @@ class EventsDataSourceImpl implements EventsDataSource {
         return Left(response?.data['message']);
       }
     } catch (e) {
+      print(e);
       return Left(e.toString());
     }
   }
-  
 }

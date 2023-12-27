@@ -24,7 +24,7 @@ abstract class _HomeScreenLogicHolderBase with Store {
       isEventsLoading = true;
       var result = await getEventsUsecase.call(NoParams());
       isEventsLoading = false;
-      events = result.getOrElse(() => []);
+      events = result!.getOrElse(() => []);
     }
     return events;
   }

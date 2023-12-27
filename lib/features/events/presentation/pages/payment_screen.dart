@@ -147,6 +147,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             child: Padding(
                               padding: const EdgeInsets.only(left: 8.0),
                               child: TextField(
+                                key: const Key("Card Number"),
                                 style: customFont(
                                     color: Colors.white,
                                     fontSize: 14,
@@ -182,6 +183,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 8.0),
                                     child: TextField(
+                                      key: const Key("Expiry Date"),
                                       style: customFont(
                                           color: Colors.white,
                                           fontSize: 14,
@@ -216,6 +218,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 8.0),
                                     child: TextField(
+                                      key: const Key("CVV"),
                                       style: customFont(
                                           color: Colors.white,
                                           fontSize: 14,
@@ -246,6 +249,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
               const SizedBox(height: 40),
               GestureDetector(
+                key: const Key("Buy Button"),
                 onTap: () {
                   if ((cardNumberController.text.isNotEmpty &&
                       expiryDateController.text.isNotEmpty &&
@@ -305,7 +309,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       errorSnackBar(context, "Payment information is wrong");
       return false;
     } else {
-      successSnackBar(context, "Payment is succesfull!");
+      successSnackBar(context, "Payment is successful!");
       return true;
     }
   }
