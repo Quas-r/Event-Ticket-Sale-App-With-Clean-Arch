@@ -25,7 +25,6 @@ class EventsDataSourceImpl implements EventsDataSource {
         return Left(response?.data['message']);
       }
     } catch (e) {
-      print(e);
       return Left(e.toString());
     }
   }
